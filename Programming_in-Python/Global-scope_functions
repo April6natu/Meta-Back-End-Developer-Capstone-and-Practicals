@@ -1,0 +1,30 @@
+
+# Global variable - accessible from anywhere
+special = 5
+
+def get_total(a, b):
+    #enclosed scope variable declared inside a function
+    total = a + b
+    print(f"Accessing global 'special' from get_total(): {special}")
+
+    def double_it():
+        #local variable
+        double = total * 2
+        print(f"Accessing global 'special' from double_it(): {special}")
+        print(f"Double the total: {double}")
+        return double
+
+    result = double_it()
+    print(f"Total: {total}")
+    return total
+
+# Demonstrate global scope access
+print("Demonstrating global scope access:")
+print(f"Global variable 'special' at module level: {special}")
+
+# Call the function to see how global variables are accessed
+final_total = get_total(10, 15)
+print(f"Final total returned: {final_total}")
+
+# Global variable can be accessed from anywhere
+print(f"Global variable 'special' after function calls: {special}")
